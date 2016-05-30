@@ -2,14 +2,16 @@
 
 namespace MaxPrimeNumberCalculator.PrimeNumberFinders
 {
-    public class StepPrimeFinder : ILargestPrimeFinder
+    public class ExponentialStepPrimeFinder : ILargestPrimeFinder
     {
         private readonly IPrimeChecker _primeChecker;
-        private readonly ulong _stepSize;
+        private readonly ulong _stepFactor;
+        private ulong _stepSize;
         private ulong _currentValue = 2;
 
-        public StepPrimeFinder(ulong stepSize, IPrimeChecker primeChecker)
+        public ExponentialStepPrimeFinder(ulong stepFactor, ulong stepSize, IPrimeChecker primeChecker)
         {
+            _stepFactor = stepFactor;
             _stepSize = stepSize;
             _primeChecker = primeChecker;
         }
@@ -20,6 +22,8 @@ namespace MaxPrimeNumberCalculator.PrimeNumberFinders
 
             while (!_primeChecker.IsPrime(_currentValue))
                 --_currentValue;
+
+            _stepSize *= _stepFactor;
 
             return _currentValue;
         }

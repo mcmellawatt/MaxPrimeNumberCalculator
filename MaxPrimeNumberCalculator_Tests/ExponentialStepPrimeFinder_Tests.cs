@@ -23,7 +23,7 @@ using Moq;
 namespace MaxPrimeNumberCalculator_Tests
 {
     [TestClass]
-    public class StepPrimeFinder_Tests
+    public class ExponentialStepPrimeFinder_Tests
     {
         [TestMethod]
         public void StepPrimeFinder_GetNextLargestPrime_Increasing()
@@ -31,7 +31,7 @@ namespace MaxPrimeNumberCalculator_Tests
             var mockPrimeChecker = new Mock<IPrimeChecker>();
             //Mock out the prime checker to always return true
             mockPrimeChecker.Setup(mpc => mpc.IsPrime(It.IsAny<ulong>())).Returns(true);
-            var primeFinder = new StepPrimeFinder(5, mockPrimeChecker.Object);
+            var primeFinder = new ExponentialStepPrimeFinder(5, 5, mockPrimeChecker.Object);
 
             var primeOne = primeFinder.GetNextLargestPrime();
             var primeTwo = primeFinder.GetNextLargestPrime();

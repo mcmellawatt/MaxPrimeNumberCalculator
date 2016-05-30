@@ -81,7 +81,7 @@
   <ItemGroup>
     <Compile Include="PrimeNumberSignalRHub_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StepPrimeFinder_Tests.cs" />
+    <Compile Include="ExponentialStepPrimeFinder_Tests.cs" />
     <Compile Include="TrialDivisionPrimeChecker_Tests.cs" />
   </ItemGroup>
   <ItemGroup>

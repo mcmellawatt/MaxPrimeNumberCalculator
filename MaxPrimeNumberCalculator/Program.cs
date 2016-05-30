@@ -33,8 +33,8 @@ namespace MaxPrimeNumberCalculator
             //Use dependency injection to inject the ILargestPrimeFinder and IPrimeChecker implementations at runtime
             GlobalHost.DependencyResolver.Register(
                 typeof(PrimeNumberSignalRHub),
-                //Use a step size of 1000000000000 for now
-                () => new PrimeNumberSignalRHub(new StepPrimeFinder(1000000000000, new TrialDivisionPrimeChecker())));
+                //Use a factor of 5 and step of 10000
+                () => new PrimeNumberSignalRHub(new ExponentialStepPrimeFinder(5, 10000, new TrialDivisionPrimeChecker())));
 
             //To host the client code static files
             app.UseFileServer(new FileServerOptions()
