@@ -2,6 +2,7 @@
 using MaxPrimeNumberCalculator.PrimeCheckers;
 using MaxPrimeNumberCalculator.PrimeNumberFinders;
 using MaxPrimeNumberCalculator.Web_Service;
+using MaxPrimeNumberFinder;
 using Microsoft.AspNet.SignalR;
 using Microsoft.Owin.Hosting;
 using Microsoft.Owin.StaticFiles;
@@ -31,10 +32,12 @@ namespace MaxPrimeNumberCalculator
         public void Configuration(IAppBuilder app)
         {
             //Use dependency injection to inject the ILargestPrimeFinder and IPrimeChecker implementations at runtime
+            //If more time was allotted, might consider some kind of factory pattern here so implementations could be hot swapped
             GlobalHost.DependencyResolver.Register(
                 typeof(PrimeNumberSignalRHub),
-                //Use a factor of 5 and step of 10000
-                () => new PrimeNumberSignalRHub(new ExponentialStepPrimeFinder(5, 10000, new TrialDivisionPrimeChecker())));
+                //The step size and step factor were determined through trial and error, but there is likely a more choice of parameters.
+                //Would need more time to determine the optimal paramters.
+                () => new PrimeNumberSignalRHub(new ExponentialStepPrimeFinder(1525, 100000, new MillerRabinPrimeChecker())));
 
             //To host the client code static files
             app.UseFileServer(new FileServerOptions()

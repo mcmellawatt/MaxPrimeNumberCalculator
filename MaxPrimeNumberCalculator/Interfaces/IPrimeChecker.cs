@@ -1,13 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Numerics;
 
 namespace MaxPrimeNumberCalculator.Interfaces
 {
     public interface IPrimeChecker
     {
-        bool IsPrime(ulong primeCandidate);
+        /// <summary>
+        /// Checks of a given number is prime
+        /// </summary>
+        /// <param name="primeCandidate">Prime candidate</param>
+        /// <returns>True if prime, false if not</returns>
+        bool IsPrime(BigInteger primeCandidate);
     }
 }

@@ -75,6 +75,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Web.Cors, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Cors.5.0.0\lib\net45\System.Web.Cors.dll</HintPath>
       <Private>True</Private>
@@ -89,6 +90,7 @@
   <ItemGroup>
     <Compile Include="Interfaces\ILargestPrimeFinder.cs" />
     <Compile Include="Interfaces\IPrimeChecker.cs" />
+    <Compile Include="PrimeCheckers\MillerRabinPrimeChecker.cs" />
     <Compile Include="PrimeCheckers\TrialDivisionPrimeChecker.cs" />
     <Compile Include="PrimeFinders\ExponentialStepPrimeFinder.cs" />
     <Compile Include="Program.cs" />

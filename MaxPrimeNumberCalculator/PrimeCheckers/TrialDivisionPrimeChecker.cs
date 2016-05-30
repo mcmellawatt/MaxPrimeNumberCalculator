@@ -1,4 +1,5 @@
-﻿using MaxPrimeNumberCalculator.Interfaces;
+﻿using System.Numerics;
+using MaxPrimeNumberCalculator.Interfaces;
 
 namespace MaxPrimeNumberCalculator.PrimeCheckers
 {
@@ -6,14 +7,14 @@ namespace MaxPrimeNumberCalculator.PrimeCheckers
     {
         //Basic implementation idea inspired by RosettaCode
         //https://rosettacode.org/wiki/Primality_by_trial_division#C.23
-        public bool IsPrime(ulong primeCandidate)
+        public bool IsPrime(BigInteger primeCandidate)
         {
             if (primeCandidate <= 1)
                 return false;
 
-            for (ulong i = 2; i*i <= primeCandidate; i++)
+            for (BigInteger i = 2; i * i <= primeCandidate; i++)
             {
-                if (primeCandidate%i == 0)
+                if (primeCandidate % i == 0)
                     return false;
             }
 

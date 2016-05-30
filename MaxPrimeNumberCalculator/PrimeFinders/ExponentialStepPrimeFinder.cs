@@ -1,4 +1,5 @@
-﻿using MaxPrimeNumberCalculator.Interfaces;
+﻿using System.Numerics;
+using MaxPrimeNumberCalculator.Interfaces;
 
 namespace MaxPrimeNumberCalculator.PrimeNumberFinders
 {
@@ -6,8 +7,8 @@ namespace MaxPrimeNumberCalculator.PrimeNumberFinders
     {
         private readonly IPrimeChecker _primeChecker;
         private readonly ulong _stepFactor;
-        private ulong _stepSize;
-        private ulong _currentValue = 2;
+        private BigInteger _stepSize;
+        private BigInteger _currentValue = 2;
 
         public ExponentialStepPrimeFinder(ulong stepFactor, ulong stepSize, IPrimeChecker primeChecker)
         {
@@ -16,7 +17,7 @@ namespace MaxPrimeNumberCalculator.PrimeNumberFinders
             _primeChecker = primeChecker;
         }
 
-        public ulong GetNextLargestPrime()
+        public BigInteger GetNextLargestPrime()
         {
             _currentValue += _stepSize;
 

@@ -1,4 +1,5 @@
-﻿using System.Timers;
+﻿using System.Numerics;
+using System.Timers;
 using MaxPrimeNumberCalculator.Interfaces;
 using Microsoft.AspNet.SignalR;
 
@@ -9,7 +10,7 @@ namespace MaxPrimeNumberCalculator.Web_Service
         private readonly ILargestPrimeFinder _largestPrimeFinder;
         private readonly int _timeToCalculate;
         private bool _maxTimeReached = false;
-        private ulong _largestPrimeNumber;
+        private BigInteger _largestPrimeNumber;
 
         public PrimeNumberSignalRHub(ILargestPrimeFinder largestPrimeFinder, int timeToCalculate = 60)
         {

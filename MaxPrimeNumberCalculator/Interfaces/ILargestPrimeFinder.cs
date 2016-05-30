@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System.Numerics;
+using System.Security.Cryptography.X509Certificates;
 
 namespace MaxPrimeNumberCalculator.Interfaces
 {
@@ -8,6 +9,6 @@ namespace MaxPrimeNumberCalculator.Interfaces
         /// Retrieves the next largest prime using the implemented algorithm
         /// </summary>
         /// <returns>Next largest prime number</returns>
-        ulong GetNextLargestPrime();
+        BigInteger GetNextLargestPrime();
     }
 }
