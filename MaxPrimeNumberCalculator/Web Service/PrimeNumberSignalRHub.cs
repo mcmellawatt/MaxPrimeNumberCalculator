@@ -1,21 +1,26 @@
 ﻿using System.Timers;
+using MaxPrimeNumberCalculator.Interfaces;
 using Microsoft.AspNet.SignalR;
 
 namespace MaxPrimeNumberCalculator.Web_Service
 {
     public class PrimeNumberSignalRHub : Hub
     {
-        private int _timeToCalculate;
+        private readonly ILargestPrimeFinder _largestPrimeFinder;
+        private readonly int _timeToCalculate;
         private bool _maxTimeReached = false;
+        private ulong _largestPrimeNumber;
 
-        public PrimeNumberSignalRHub(int timeToCalculate = 60)
+        public PrimeNumberSignalRHub(ILargestPrimeFinder largestPrimeFinder, int timeToCalculate = 60)
         {
+            _largestPrimeFinder = largestPrimeFinder;
             _timeToCalculate = timeToCalculate;
         }
 
         public void StartPrimeCalculation()
         {
             UpdateTimer();
+            CalculatePrimes();
         }
 
         /// <summary>
@@ -40,6 +45,15 @@ namespace MaxPrimeNumberCalculator.Web_Service
             };
 
             timer.Start();
+        }
+
+        private void CalculatePrimes()
+        {
+            while (!_maxTimeReached)
+            {
+                _largestPrimeNumber = _largestPrimeFinder.GetNextLargestPrime();
+                Clients.Caller.addPrimeNumber(_largestPrimeNumber.ToString());
+            }
         }
     }
 }
