@@ -6,8 +6,11 @@ Prerequisites:
 - Port 8080 is available for hosting the self-hosted OWIN service
 
 To run:
+
 1. On a Windows machine, download the Compiled folder from source control, or compile the solution yourself.
+
 2. Run the MaxPrimeNumberCalculator.exe
+
 3. Visit http://localhost:8080 in a browser and the calculations should begin
 
 Implementation details:
