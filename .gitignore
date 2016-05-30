@@ -45,3 +45,9 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+packages/
+*.nupkg
+MaxPrimeNumberCalculator_Tests/obj/
+MaxPrimeNumberCalculator_Tests/bin/
+MaxPrimeNumberCalculator/obj/
+MaxPrimeNumberCalculator/bin/
