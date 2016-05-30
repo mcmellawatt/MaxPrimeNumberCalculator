@@ -22,6 +22,22 @@
             font-weight: bold;
             font-family: inherit;
         }
+        #maxPrimeText {
+            float: left;
+            width: 120px;
+            font-weight: bold;
+            font-family: inherit;
+        }
+        #primeListText {
+            float: left;
+            width: 200px;
+            font-weight: bold;
+            font-family: inherit;
+        }
+        #primesCalculated ul {
+            word-wrap: break-word;
+            font-family: inherit;
+        }
     </style>
 </head>
 <body>
@@ -29,6 +45,12 @@
         <div id="pageTitle">Maximum Prime Number Calculator</div>
         <div id="timerText">Time Elapsed: </div>
         <div id="timer">0</div>
+        <div id="maxPrimeText">Max Prime: </div>
+        <div id="maxPrime">Calculating...</div>
+        <div id="primeListText">Primes Calculated: </div><br/>
+        <div id="primesCalculated">
+            <ul></ul>
+        </div>
     </div>
     <!--Script references. -->
     <!--Reference the jQuery library. -->
@@ -49,6 +71,11 @@
             // Displays the time elapsed
             primeNumberHub.client.updateTimer = function (time) {
                 $('#timer').text(time);
+            }
+            
+            primeNumberHub.client.addPrimeNumber = function(prime) {
+                $('#maxPrime').text(prime);
+                $('#primesCalculated ul').append('<li>' + prime + '</li>');
             }
 
             // Start the connection.

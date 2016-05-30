@@ -8,7 +8,7 @@ namespace MaxPrimeNumberCalculator.PrimeNumberFinders
         private readonly ulong _stepSize;
         private ulong _currentValue = 2;
 
-        public StepPrimeFinder(ulong stepFactor, ulong stepSize, IPrimeChecker primeChecker)
+        public StepPrimeFinder(ulong stepSize, IPrimeChecker primeChecker)
         {
             _stepSize = stepSize;
             _primeChecker = primeChecker;
