@@ -7,7 +7,7 @@ Prerequisites:
 
 To run:
 
-1. On a Windows machine, download the Compiled folder from source control, or compile the solution yourself.
+1. On a Windows machine, clone the repo and open the Compiled folder, or compile the solution yourself.  NOTE: Windows SmartScreen will prevent the app from running if you just download the repo as a zip from GitHub.  You must clone the repo or compile the app yourself to prevent this problem.
 
 2. Run the MaxPrimeNumberCalculator.exe
 
